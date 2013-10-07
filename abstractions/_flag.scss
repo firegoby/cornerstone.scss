@@ -1,0 +1,33 @@
+// Flag Object - Like Media Object but with vertical alignment of content
+// info & source: http://csswizardry.com/2013/05/the-flag-object/
+// NOTE: this has no padding or margins, it's purely the structure
+%flag,
+%flag--rev {
+    display: table;
+    width: 100%;
+}
+
+    %flag__image,
+    %flag__body {
+        display: table-cell;
+        vertical-align: middle;
+
+        %flag--bottom & {
+            vertical-align: bottom;
+        }
+    }
+
+    %flag__image {
+        > img {
+            display: block;
+            max-width: none;
+        }
+
+        %flag--rev & {
+            padding-right: 0;
+        }
+    }
+
+    %flag__body {
+        width: 100%;
+    }

@@ -1,0 +1,25 @@
+// Breadcrumbs example
+.breadcrumbs {
+    @extend %lineup;
+    @include list-separator('»');
+    height: $double-gap;
+    color: #666;
+    background: #f6f6f6;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    padding: $half-gap $gap;
+
+    a {
+        color: #333;
+    }
+
+    a:hover {
+        color: royalblue;
+    }
+
+    li:last-child a {
+        color: royalblue;
+        font-weight: bold;
+    }
+}
+

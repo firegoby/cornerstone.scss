@@ -1,0 +1,128 @@
+// Clearfix
+// source: http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+@mixin clearfix {
+    &:after {
+        content:"";
+        display:table;
+        clear:both;
+    }
+}
+
+// Create a fully formed type style (sizing and vertical rhythm) by passing in
+// a single value, e.g. `@include font-size(10px);`
+// Thanks to @redclov3r for the `line-height` Sass:
+// twitter.com/redclov3r/status/250301539321798657
+// source: Inuit.css
+@mixin font-size($font-size, $line-height: true) {
+    font-size: $font-size;
+    font-size: ($font-size / $base-font-size) * 1rem;
+    @if $line-height == true {
+        line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+    }
+}
+
+// Seperator - Separate list items with a character
+// Abstracted from Harry Roberts' breadcrumb code
+// at http://csswizardry.com/2011/09/the-nav-abstraction/
+@mixin list-separator($divider, $horizontal-spacing: $gap) {
+    li:before {
+        content: $divider;
+        margin: auto $horizontal-spacing;
+    }
+
+    li:first-child:before {
+        content: normal;
+    }
+}
+
+// DPI Resolution Mixins
+// source: http://blog.14islands.com/post/37259603246/sass-resolution-mixin
+// NOTE: Should replace this with? http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/
+@mixin if-min-resolution($dppx) {
+  @include if-resolution(min, $dppx) {
+    @content;
+  }
+}
+
+@mixin if-max-resolution($dppx) {
+  @include if-resolution(max, $dppx) {
+    @content;
+  }
+}
+
+@mixin if-resolution($prefix, $dppx) {
+  // 1px = 96dpi
+  $dpi: $dppx * 96;
+  @media
+    (-webkit-#{$prefix}-device-pixel-ratio: #{$dppx}),
+    (#{$prefix}--moz-device-pixel-ratio: #{$dppx}),
+    (-o-#{$prefix}-device-pixel-ratio: #{$dppx*2}/2),
+    (#{$prefix}-device-pixel-ratio: #{$dppx}),
+    (#{$prefix}-resolution: #{$dpi}dpi),
+    (#{$prefix}-resolution: #{$dppx}dppx) {
+      @content;
+  }
+}
+
+// Retina mixin - just easy keyword the above
+@mixin retina() {
+    @include if-resolution(min, 2) {
+        @content;
+    }
+}
+
+// Media query mixin.
+// source: Inuit.css
+//
+// It’s not great practice to define solid breakpoints up-front, preferring to
+// modify your design when it needs it, rather than assuming you’ll want a
+// change at ‘mobile’. However, as inuit.css is required to take a hands off
+// approach to design decisions, this is the closest we can get to baked-in
+// responsiveness. It’s flexible enough to allow you to set your own breakpoints
+// but solid enough to be frameworkified.
+//
+// We define some broad breakpoints in our vars file that are picked up here
+// for use in a simple media query mixin. Our options are:
+//
+// palm
+// lap
+// lap-and-up
+// portable
+// desk
+// desk-wide
+//
+// Not using a media query will, naturally, serve styles to all devices.
+//
+// `@include media-query(palm){ [styles here] }`
+//
+// We work out your end points for you:
+
+$palm-end: $lap-start - 1px;
+$lap-end: $desk-start - 1px;
+
+@mixin media-query($media-query) {
+
+    @if $media-query == palm {
+        @media only screen and (max-width:$palm-end) { @content; }
+    }
+
+    @if $media-query == lap {
+        @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
+    }
+
+    @if $media-query == lap-and-up {
+        @media only screen and (min-width:$lap-start) { @content; }
+    }
+
+    @if $media-query == portable {
+        @media only screen and (max-width:$lap-end) { @content; }
+    }
+
+    @if $media-query == desk {
+        @media only screen and (min-width:$desk-start) { @content; }
+    }
+
+    @if $media-query == desk-wide {
+        @media only screen and (min-width: $desk-wide-start) { @content; }
+    }
+}

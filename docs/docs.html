@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>cornerstone.scss Documentation</title>
+        <meta name="description" content="cornerstone.scss Documentation and Example Usage">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="docs.css">
+    </head>
+    <body>
+        <header>
+            <h1>cornerstone.scss</h1>
+            <h2>A CSS Micro&ndash;Framework</h2>
+        </header>
+
+        <section class="introduction">
+            <h3><span>Introduction</span></h3>
+            <p><strong class="brand">cornerstone.scss</strong> is a collection of useful CSS defaults, SASS mixins, abstractions and other little helpers to serve as a quickstart for your project's main stylesheet. Inspired by Harry Roberts' <strong><a href="">inuit.css</a></strong> it is similar in attitude (including <abbr title="Block, Element, Modifier">BEM</abbr> syntax) though smaller in size &amp; scope, purely semantic, a lot less polished and probably unsuitable for production. If you're planning the next Facebook I'd recommend inuit.css be used instead of this. This is an <em>very early</em> <strong>alpha</strong> release so expect bugs, API changes and dragons in the hinterlands.</p>
+            <p>Because <strong class="brand">cornerstone.scss</strong> doesn't provide any visual styling beyond the basic browser defaults the examples in the <strong>Abstractions</strong> section are fleshed out to show how the mixins and classes might be used in the real world. Read the source of <code>docs/index.html</code> and <code>docs/docs.scss</code> to see how they're implemented.</p>
+            <p><strong class="brand">cornerstone.scss</strong> targets IE9+ only, on the basis that browser support should be for the latest two versions of all major browsers. Google stopped support for IE8 last year (2012) for its Google Apps and &lt;IE9 numbers continue to drop steadily.</p>
+        </section>
+
+        <section class="module">
+            <h3><span>Core</span></h3>
+
+            <h4>Normalize <span class="filename">core/_normalize.scss</span></h4>
+            <p>Nicolas Gallagher's <a href="http://necolas.github.io/normalize.css/">Normalize.css</a>. A modern, HTML5-ready alternative to CSS reset, it makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
+            </p>
+
+            <h4>Functions <span class="filename">core/_functions.scss</span></h4>
+            <p>SASS functions, mainly used in writing SASS commands rather than actually styles directly.</p>
+            <dl><dt><code>strip-units(value)</code></dt><dd>returns any value stripped of its units, e.g. '12px' becomes '12'.</dd></dl>
+
+            <h4>Mixins <span class="filename">core/_mixins.scss</span></h4>
+            <p>SASS mixins to simplify and streamline development.</p>
+            <dl><dt><code>@include clearfix;</code></dt><dd>Applies a clearfix to contain child floats.</dd></dl>
+            <dl><dt><code>@include font-size(18px);</code></dt><dd>Sets font-size in rems to pixel equivalent and calculates correct line-height to maintain vertical rhythm.</dd></dl>
+            <dl><dt><code>@include list-separator("|", [$spacing]);</code></dt><dd>Interleves <code>li</code> list items with a character. Takes an optional <code>$spacing</code> parameter (default value <code>$gap</code>) that defines horizontal margins either side of the character.</dd></dl>
+            <dl><dt><code>@include if-min-resolution($dpi) { //styles }</code></dt><dd>Media query for minimum resolution.</dd></dl>
+            <dl><dt><code>@include if-max-resolution($dpi) { //styles }</code></dt><dd>Media query for maximum resolution.</dd></dl>
+            <dl><dt><code>@include retina() { //styles }</code></dt><dd>Shortcut resolution media query targetting Retina devices (2+ DPI).</dd></dl>
+            <dl><dt><code>@include media-query($breakpoint) { //styles }</code></dt><dd>Media query mixin, takes a breakpoint of <code>palm, lap, lap-and-up, portable, desk, desk-wide</code> the boundaries of which are defined in <code>_variables.scss</code></dd></dl>
+
+            <h4>Universals <span class="filename">core/_universals.scss</span></h4>
+            <p>Sets styles on unclassed element selectors.</p>
+            <p>Automatically &ndash;</p>
+            <ul>
+                <li>Sets universal border-box sizing</li>
+                <li>Always includes vertical scroll bar</li>
+                <li>Enables Responsive images</li>
+                <li>Sets consistent vertical margins</li>
+            </ul>
+        </section>
+
+        <section class="module">
+            <h3><span>Typography</span></h3>
+            <h4>Headings <span class="filename">typography/_headings.scss</span></h4>
+            <p>Sets up heading sizes as defined in <code>_variables.scss</code> and sets shared styling for all headings.</p>
+
+            <h4>Body <span class="filename">typography/_body.scss</span></h4>
+            <p>Any styles that apply to standard body text.</p>
+            <p>Automatically &ndash;</p>
+            <ul>
+                <li>Emboldens <code>dt</code> definition terms.</li>
+                <li>Formats <code>blockquote</code> set with <code>figure</code> elements</li>
+            </ul>
+            <dl><dt><code>@extend %indent-boundaries;</code></dt><dd>Apply to any parent element of paragraphs to use indent boundaries rather than single line boundaries, i.e. make paragraph look like they more usually do in print (books, magazines, etc)</dd></dl>
+
+            <h4>Modular Scale <span class="filename">typography/_modularscale.scss</span></h4>
+            <p>Sets the <code>$giga, $mega, $kilo, $alpha, $beta, $gamma, $delta, $epsilon, $zeta, $milli, $micro</code> font-size modular scale as defined in <code>_variables.scss</code></p>
+        </section>
+
+        <section class="module">
+            <h3><span>Abstractions</span></h3>
+            <h4>Media Object<span class="filename">abstractions/_media.scss</span></h4>
+            <p>Nicole Sullivan's <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">Media Object</a> is an image to the left, with descriptive content to the right.</p>
+            <dl><dt><code>@extend %media;</code><br/><code>@extend %media__image;</code><br/><code>@extend %media__body;</code></dt><dd><code>@extend %media;</code> is applied to the parent element. <code>@extend %media__image;</code> to the avatar element and <code>@extend %media__body;</code> to the comment text.</dd></dl>
+            <div class="example example--massive">
+                <!-- begin example code -->
+                <article class="comment">
+                    <div class="comment__avatar"><img src="images/wilecoyote.png"/></div>
+                    <div class="comment__body">
+                        <span class="comment__date">@ 1:52pm on Friday 4 October 2013</span>
+                        <span class="comment__author"><a href="/">Wile E. Coyote</a> wrote&hellip;</span>
+                        <br/>
+                        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum.</p><p>Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+                        <a href="/" class="comment__reply">Reply</a>
+                    </div>
+                </article>
+                <!-- end example code -->
+            </div>
+            <dl><dt><code>@extend %media--right;</code></dt><dd></dd></dl>
+
+            <h4>Flag Object <span class="filename">abstractions/_flag.scss</span></h4>
+            <p>Like the Media Object, but vertically aligns its content in the middle.</p>
+            <dl><dt><code>@extend %flag;</code><br/><code>@extend %flag__image;</code><br/><code>@extend %flag__body;</code></dt><dd>This example uses two <code>%flag__image</code> objects to create its effect, one for the logo, one for the New Season announcement. The <code>%flag__body</code> is a large easy-to-click box link.</dd></dl>
+            <div class="example example--large">
+                <!-- begin example code -->
+                <article class="heo">
+                    <div class="heo__logo"><img src="images/heo.png"/></div>
+                    <p class="heo__announce">New Season</p>
+                    <a class="heo__download" href="/">Game of Drones<br/><span class="heo__details">Thursday Sept. 26th 10/9c</span></a>
+                </article>
+                <!-- end example code -->
+            </div>
+
+            <dl><dt><code>@extend %flag--rev;</code></dt><dd>Modifier used to have the image on the right. Note the source order of <code>%flag__image</code> and <code>%flag__body</code> are also reversed.</dd></dl>
+            <div class="example example--extralarge">
+                <!-- begin example code -->
+                <article class="acme">
+                    <a class="acme__profile" href="/">
+                        <span class="acme__name">Wile E. Coyote</span>
+                        <br/>
+                        <span class="acme__position">Senior VP Road&ndash;Pest Removal, ACME Inc.</span>
+                    </a>
+                    <a href="/" class="acme__avatar"><img src="images/wilecoyote.png"/></a>
+                </article>
+                <!-- end example code -->
+            </div>
+
+            <h4>Lineup (a.k.a Nav, Array) <span class="filename">abstractions/_lineup.scss</span></h4>
+            <p>Line up list items horizontally</p>
+
+            <dl><dt><code>@extend %lineup;</code></dt><dd>Use on any <code>ul, ol</code> element to line up its list items horizontally &ndash; <code>li</code>'s can contain links or other elements</dd></dl>
+            <div class="example">
+                <!-- begin example code -->
+                <ul class="taglist">
+                    <li class="taglist__tag"><a class="taglist__link" href="/">Web Design</a></li>
+                    <li class="taglist__tag"><a class="taglist__link" href="/">HTML</a></li>
+                    <li class="taglist__tag"><a class="taglist__link" href="/">CSS</a></li>
+                </ul>
+                <!-- end example code -->
+            </div>
+
+            <p>Combine it with <code>@include list-separator('/');</code> to easily create menus&hellip;</p>
+            <div class="example">
+                <!-- begin example code -->
+                <ul class="menubar">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Portfolio</a></li>
+                    <li class="active"><a href="/">Projects</a></li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+                <!-- end example code -->
+            </div>
+
+            <p>Combine it with <code>@include list-separator('»');</code> to easily create breadcrumb trails&hellip;</p>
+            <div class="example example--medium">
+                <!-- begin example code -->
+                <ul class="breadcrumbs">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Products</a></li>
+                    <li><a href="/">Cameras <span class="amp">&amp;</span> Photography</a></li>
+                    <li><a href="/">Digital SLRs</a></li>
+                </ul>
+                <!-- end example code -->
+            </div>
+
+            <dl><dt><code>@extend %lineup--evenly;</code></dt><dd>Modifier used to distribute <code>li</code>'s across the full width of the container element.</dd></dl>
+            <div class="example example--medium">
+                <!-- begin example code -->
+                <ul class="sitemenu">
+                    <li class="sitemenu__item"><a class="sitemenu__link" href="/">Home</a></li>
+                    <li class="sitemenu__item active"><a class="sitemenu__link" href="/">About Us</a></li>
+                    <li class="sitemenu__item"><a class="sitemenu__link" href="/">Our Services</a></li>
+                    <li class="sitemenu__item"><a class="sitemenu__link" href="/">Our Clients</a></li>
+                    <li class="sitemenu__item"><a class="sitemenu__link" href="/">Contact Us</a></li>
+                </ul>
+                <!-- end example code -->
+            </div>
+
+            <p>If the contents are fixed width and horizontally centered within their <code>li</code> they'll be perfectly evenly distributed</p>
+            <div class="example example--medium">
+                <!-- begin example code -->
+                <ul class="social">
+                    <li><a class="social__link twitter" href="/"></a></li>
+                    <li><a class="social__link fb" href="/"></a></li>
+                    <li><a class="social__link pintrest" href="/"></a></li>
+                    <li><a class="social__link google" href="/"></a></li>
+                    <li><a class="social__link youtube" href="/"></a></li>
+                    <li><a class="social__link tumblr" href="/"></a></li>
+                </ul>
+                <!-- end example code -->
+            </div>
+
+            <h4>Place <span class="filename">abstractions/_place.scss</span></h4>
+            <dl><dt><code>@include place--left($spacing);</code></dt><dd>Float an element left with <code>$spacing</code> applied to the right &amp; bottom margins, defaults to <code>$gap</code> if omitted to maintain vertical and horizontal rhythm.</dd></dl>
+            <dl><dt><code>@include place--right($spacing);</code></dt><dd>Float an element right with <code>$spacing</code> applied to the left &amp; bottom margins, defaults to <code>$gap</code> if omitted to maintain vertical and horizontal rhythm.</dd></dl>
+            <dl><dt><code>@include place--center($spacing);</code></dt><dd>Center a element using automatic left/right margins with <code>$spacing</code> applied to the bottom margin, defaults to <code>$gap</code> if omitted to maintain vertical rhythm.</dd></dl>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+// Full width site menu example
+$c-sitemenu: #3FBBF5;
+.sitemenu {
+    @extend %lineup--evenly;
+    background: #1a1a1a;
+}
+    .sitemenu__item {
+        text-align: center;
+        border-left: 1px solid #666;
+
+        &:first-child {
+            border-left: 0;
+        }
+
+        &.active,
+        &.active + .sitemenu__item {
+            border-left: 0;
+        }
+    }
+
+    .sitemenu__link {
+        @include font-size(12px);
+        padding: $half-gap $gap;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #ddd;
+
+        &:hover {
+            color: white;
+            background: darken($c-sitemenu, 25%);
+        }
+
+        .active & {
+            background: $c-sitemenu;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 3px rgba(0,0,0,0.6);
+        }
+    }
+

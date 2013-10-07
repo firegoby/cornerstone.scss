@@ -1,0 +1,41 @@
+// Heading Sizes
+// source: Inuit.css & typeplate.com
+
+ // Styles for all headings
+.hN {
+    text-rendering: optimizeLegibility; // voodoo to enable ligatures and kerning
+	//line-height: 1; // this fixes huge spaces when a heading wraps onto two lines
+    font-weight: normal; // disable embolden by default, size defines hierarchy
+    color: $base-heading-color;
+}
+
+h1 {
+    @extend .hN;
+    @include font-size($h1-size);
+}
+
+h2 {
+    @extend .hN;
+    @include font-size($h2-size);
+}
+
+h3 {
+    @extend .hN;
+    @include font-size($h3-size);
+}
+
+h4 {
+    @extend .hN;
+    @include font-size($h4-size);
+}
+
+h5 {
+    @extend .hN;
+    @include font-size($h5-size);
+}
+
+h6 {
+    @extend .hN;
+    @include font-size($h6-size);
+}
+

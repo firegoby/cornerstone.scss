@@ -1,0 +1,150 @@
+// Include cornerstone.scss
+@import "../cornerstone";
+
+// Examples are fleshed out in their own stylesheets
+@import "examples/media-comment";
+@import "examples/flag-acme-profile";
+@import "examples/flag-game-of-drones";
+@import "examples/lineup-taglist";
+@import "examples/lineup-menubar";
+@import "examples/lineup-breadcrumbs";
+@import "examples/lineup-sitemenu";
+@import "examples/lineup-social";
+
+// General styles for the docs
+body {
+    max-width: 52em;
+    margin: 2% auto;
+}
+
+a {
+    text-decoration: none;
+    color: RoyalBlue;
+}
+
+dt {
+    margin-bottom: $gap;
+}
+
+code {
+    background: #f6f6f6;
+    font-weight: bold;
+    color: #111;
+    padding: 0 $half-gap;
+}
+
+p a {
+    font-weight: bold;
+}
+
+p + code {
+    @include font-size(18px);
+    font-weight: bold;
+}
+
+header h1 {
+    text-align: center;
+    font-family: $alt-font-family;
+}
+
+header h1 + h2 {
+    text-align: center;
+    @include font-size($h5-size);
+    text-transform: uppercase;
+    color: #999;
+    letter-spacing: 0.1em;
+    font-family: $alt-font-family;
+
+}
+
+body > section {
+    margin-bottom: $gap * 4;
+}
+
+body > section > h3 {
+    text-align: center;
+
+    span {
+        @include font-size($h4-size);
+        font-family: $alt-font-family;
+        letter-spacing: 0.05em;
+
+        background: white;
+        padding: 0 $gap;
+        text-transform: uppercase;
+    }
+
+    &:before {
+        content: "";
+        z-index: -1;
+        display: block;
+        position: relative;
+        top: 0.9em;
+        border-bottom: 3px double #777;
+        margin-bottom: -3px; // maintain vertical rhythmn
+    }
+}
+
+.module h4 {
+    margin-top: $gap * 3;
+}
+
+.module h3 + h4 {
+    margin-top: 0;
+}
+
+.filename {
+    @include place--right;
+    @include font-size(16px);
+    font-family: $monospace-font-family;
+    color: #666;
+    background: #f6f6f6;
+    padding: 0 $half-gap;
+}
+
+.brand {
+    @include font-size(15px);
+    font-family: $alt-font-family;
+}
+
+// Example Stage
+.example {
+    @include clearfix;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: $double-gap;
+    margin-bottom: $double-gap;
+    padding: $gap $gap 0;
+    position: relative;
+    height: 3 * $gap;
+
+    &.example--medium {
+        height: 4 * $gap;
+    }
+
+    &.example--large {
+        height: 5 * $gap;
+    }
+
+    &.example--extralarge {
+        height: 7 * $gap;
+    }
+
+    &.example--massive {
+        height: 18 * $gap;
+    }
+
+    &:before {
+        @include font-size(12px);
+        content: "Example";
+        border: 1px solid red;
+        background: white;
+        text-transform: uppercase;
+        position: absolute;
+        top: -1em;
+        left: -1em;
+        padding: 0 $half-gap;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+}

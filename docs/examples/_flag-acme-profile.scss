@@ -1,0 +1,43 @@
+// ACME Profile Example
+.acme {
+    @extend %flag--rev;
+    background: #f6f6f6;
+    border: 1px solid #eaeaea;
+    width: 30em;
+    margin: 0 auto;
+    margin-bottom: $gap;
+    height: $gap * 4.75;
+}
+
+    .acme__avatar {
+        @extend %flag__image;
+
+        img {
+            width: 100px;
+            transition: 0.666s ease-in-out;
+
+            &:hover {
+                -ms-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    .acme__profile {
+        @extend %flag__body;
+        text-align: right;
+        text-decoration: none;
+    }
+
+    .acme__name {
+        font-size: 1.2em;
+        color: RoyalBlue;
+    }
+
+    .acme__position {
+        text-transform: uppercase;
+        color: #555;
+        font-size: 0.8em;
+    }
+

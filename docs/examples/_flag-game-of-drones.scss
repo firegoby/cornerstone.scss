@@ -1,0 +1,52 @@
+// HEO Game of Drones Example
+$heo-base: #354a79;
+$heo-light: lighten($heo-base, 30%);
+$heo-dark: darken($heo-base, 10%);
+$heo-hover: darken($heo-dark, 10%);
+
+.heo {
+    @extend %flag;
+    height: $gap * 3;
+}
+
+    .heo__logo {
+        @extend %flag__image;
+        padding: 0 1em;
+        background: $heo-dark;
+
+        img {
+            width: 100px;
+        }
+    }
+
+    .heo__announce {
+        @extend %flag__image;
+        padding: 0 2em;
+        background: $heo-light;
+        color: $heo-dark;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+
+    .heo__download {
+        @extend %flag__body;
+        min-width: 15em;
+        padding: 0 2em;
+        background: $heo-dark;
+        color: white;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: bold;
+        line-height: 1.2em;
+
+        .heo:hover & {
+            background: $heo-hover;
+        }
+    }
+
+    .heo__details {
+        text-transform: capitalize;
+        color: $heo-light;
+        font-size: 0.9em;
+    }
+

@@ -1,0 +1,21 @@
+// Evenly spaced social media icons
+.social {
+    @extend %lineup--evenly;
+    height: $double-gap;
+}
+
+    .social__link {
+        width: 34px;
+        height: 34px;
+        margin: 0 auto;
+        background-image: url(images/social.png);
+        background-size: 341px 34px;
+
+        &.twitter { background-position: 0 50%; }
+        &.fb { background-position: -102px 50%; }
+        &.pintrest { background-position: -51px 50%; }
+        &.google { background-position: -153px 50%; }
+        &.youtube { background-position: -204px 50%; }
+        &.tumblr { background-position: -306px 50%; }
+    }
+

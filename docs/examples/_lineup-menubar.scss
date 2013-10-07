@@ -1,0 +1,22 @@
+// Slash separated menu bar example
+.menubar {
+    @extend %lineup;
+    @include list-separator('/', 2em);
+    float: right;
+    color: #ccc; // sets color of the bars, links have their own color
+    @include font-size(16px);
+
+    a {
+        color: #777;
+    }
+
+    a:hover,
+    li.active a {
+        color: #111;
+    }
+
+    li.active a {
+        font-weight: bold;
+    }
+}
+

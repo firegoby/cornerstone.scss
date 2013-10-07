@@ -1,0 +1,70 @@
+// Universal Border Box
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+// Base HTML
+// source: Inuit.css
+html {
+    font: #{($base-font-size/16px)*1em}/#{$line-height-ratio} $base-font-family;
+    overflow-y:scroll;
+    min-height:100%;
+    color: $base-text-color;
+}
+
+// Responsive Images
+img {
+    max-width: 100%;
+}
+
+// Fixed width Images
+// source: Inuit.css
+img[width],
+img[height] {
+    max-width: none;
+}
+
+// Images in figure elements
+// source: Inuit.css
+figure > img {
+    display: block;
+}
+
+// Consitent Vertical Margins
+// Where `margin-bottom` is concerned, this value will be the same as the
+// base line-height. This allows us to keep a consistent vertical rhythm.
+// As per: csswizardry.com/2012/06/single-direction-margin-declarations
+// source: Adapted from Inuit.css
+h1, h2, h3, h4, h5, h6, hgroup,
+ul, ol, dl,
+blockquote, p, address,
+table,
+fieldset, figure, figcaption,
+pre,
+article, section, aside,
+%margin-bottom,
+%media,
+%flag {
+    margin-top: 0;
+    margin-bottom: $gap;
+}
+
+// Where `margin-left` is concerned we want to try and indent certain elements
+// by a consistent amount. Define that amount once, here.
+// source: Inuit.css
+ul, ol, dd {
+    margin-left: $double-gap;
+}
+
+// Need to account for hr's size when calculating its vertical margin
+hr {
+    margin-top: 0;
+    margin-bottom: (strip-units($gap) * $base-font-size) - 2px;
+    margin-bottom: (strip-units($gap) * $base-font-size - 2px) / $base-font-size * 1rem;
+}
+

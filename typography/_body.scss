@@ -1,0 +1,41 @@
+// Use indents instead of single lines as paragraph boundaries
+// ala how paragraphs are in used in print, books, magazines etc
+// source: http://v1.jontangerine.com/silo/typography/p/#two-lead-indent-justified
+%indent-boundaries {
+    p + p {
+        text-indent: $double-gap;
+        margin-top: -$gap;
+    }
+}
+
+// Citation of blockquotes in figure elements
+// discussion: http://html5doctor.com/blockquote-q-cite/
+figure blockquote {
+    &:before {
+        content: "\201C";
+        font-size: 2em;
+        line-height: 0.5em;
+        position: relative;
+        left: -0.5em;
+        margin-right: -0.45em;
+    }
+
+    &:after {
+        content: "\201D";
+    }
+
+    & + figcaption {
+        text-align: right;
+    }
+
+    & + figcaption:before {
+        content: "\2014";
+        margin-right: $half-gap;
+    }
+}
+
+// Embolden definition terms
+dt {
+    font-weight: bold;
+}
+

@@ -1,0 +1,25 @@
+// Media object
+// info: http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+// source: https://github.com/csswizardry/inuit.css/blob/master/objects/_media.scss
+// note: this has no padding or margins, it's purely the structure
+%media {
+    @include clearfix;
+    display: block;
+}
+    %media__image {
+        float: left;
+    }
+
+    //Reversed image location (right instead of left)
+    %media__image--rev {
+        float: right;
+    }
+
+        %media__image img,
+        %media__image--rev img {
+            display: block;
+        }
+
+    %media__body {
+        overflow: hidden;
+    }

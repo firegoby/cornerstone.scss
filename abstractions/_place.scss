@@ -1,0 +1,22 @@
+// Block Placement
+// Abstracted from inuit.css' image placement variations
+@mixin place--right($space: $gap) {
+    display: block;
+    float: right;
+    margin-bottom: $space;
+    margin-left: $space;
+}
+
+@mixin place--left($space: $gap) {
+    display: block;
+    float: left;
+    margin-bottom: $space;
+    margin-right: $space;
+}
+
+@mixin place--center($space: $gap) {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: $space;
+}

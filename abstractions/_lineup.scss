@@ -1,0 +1,58 @@
+// Lineup a.k.a Nav, Array, Rank
+// info: http://csswizardry.com/2011/09/the-nav-abstraction/
+%lineup {
+    @include clearfix;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    > li {
+        // mimics collapsing whitespace
+        // http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+        margin-left: -4px;
+
+        &,
+        > a {
+            display: inline-block;
+        }
+    }
+}
+
+// Stack the lineup vertically
+%lineup--stacked {
+    @extend %lineup;
+
+    > li{
+        display:list-item;
+
+        > a{
+            display:block;
+        }
+
+        &:before {
+            // we need !important since we need to override list-seperator()'s
+            // li:before content but don't know ahead of time the specificity
+            // of the selector that mixin will be applied to
+            content: normal !important;
+        }
+    }
+}
+
+// Evenly distributed lineup across 100% width of parent
+// source: https://github.com/csswizardry/inuit.css/blob/master/objects/_nav.scss
+%lineup--evenly {
+    display: table;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+
+    > li {
+        display: table-cell;
+        vertical-align: middle;
+
+        > a {
+            display: block;
+        }
+    }
+}
+

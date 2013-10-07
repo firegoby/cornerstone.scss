@@ -1,0 +1,44 @@
+// Media Object example - comment thread
+.comment {
+    @extend %media;
+    background: #f6f6f6;
+    border: 1px solid #eaeaea;
+    padding: $gap;
+}
+
+    .comment__avatar {
+        @extend %media__image;
+
+        img {
+            width: 100px;
+            margin-right: $gap;
+        }
+    }
+
+    .comment__body {
+        @extend %media__body;
+        @include font-size(13px);
+
+        br {
+            clear: both;
+        }
+    }
+        .comment__date {
+            @include place--right;
+            color: #777;
+        }
+
+        .comment__reply {
+            @include place--right(0);
+            color: #797;
+            font-weight: bold;
+            text-transform: uppercase;
+
+        }
+
+        .comment__author {
+            @include place--left;
+            @include font-size(14px);
+            font-weight: bold;
+        }
+

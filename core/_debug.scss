@@ -1,0 +1,39 @@
+// Debug Helpers
+$debug: false!default;
+$prototype: false!default;
+
+@if $debug == true {
+    // Show a baseline grid set to $base-line-height
+    html {
+        background-image: url(http://basehold.it/i/#{strip-units($base-line-height)});
+    }
+
+    // Quick Element highlighter
+    .debug,
+    %debug {
+        background: rgba(255,0,0,0.25);
+        border: 1px dotted red;
+    }
+}
+
+// Vertical Rhythm Overlay and Interactive Elements
+// idea: http://www.css-101.org/articles/trick-for-rapid-prototyping/
+// NOTE: still very experimental! doesn't work a lot of the time
+@if $prototype == true {
+    body {
+        pointer-events:none;
+        background-size: auto $gap;
+        background-image: repeating-linear-gradient(0deg, rgba(200,0,0,0.3), transparent 1px, transparent $gap);
+    }
+
+    * {
+        -webkit-user-modify: read-write;
+        word-wrap: break-word;
+        -webkit-nbsp-mode: space;
+        -webkit-line-break: after-white-space;
+    }
+
+    a {
+        -webkit-user-modify: initial;
+    }
+}

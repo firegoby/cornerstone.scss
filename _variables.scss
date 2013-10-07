@@ -1,0 +1,53 @@
+// Typography Fundamentals
+// source: Inuit.css
+$base-font-size:    14px;
+$base-line-height:  21px;
+$base-font-family:  "Helvetica Neue", Arial, sans-serif;
+$alt-font-family: Georgia, serif;
+$monospace-font-family: monospace, serif;
+
+// Basic Colors
+$base-text-color: #333;
+$base-heading-color: #111;
+$base-link-color: RoyalBlue;
+
+// Breakpoints
+$lap-start:         481px;
+$desk-start:        1024px;
+$desk-wide-start:   1200px;
+
+// Headings
+// Adpated from inuit.css
+// Use modularscale.com to help create a scale
+// Watch: http://vimeo.com/17079380
+// These are based on 16 (with 12px) in Perfect Fifth (2:3)
+$giga-size:         91px;
+$mega-size:         81px;
+$kilo-size:         60px;
+
+$h1-size:           54px; // also as `@extend %alpha`
+$h2-size:           36px; // also as `@extend %beta`
+$h3-size:           27px; // also as `@extend %gamma`
+$h4-size:           21px; // also as `@extend %delta`
+$h5-size:           16px; // also as `@extend %epsilon`
+$h6-size:           14px; // also as `@extend %zeta`
+
+$milli-size:        12px;
+$micro-size:        10px;
+
+//=============================================================================
+
+// AUTO-GENERATED VARIABLES - DO NOT EDIT
+// Adapted from inuit.css
+
+// Line Height Ratio - *Unitless*
+$line-height-ratio: strip-units($base-line-height / $base-font-size);
+
+// $gap is like inuit.css' $base-spacing-unit, except shorter to type
+// and specified in rems rather than pixels. It is the default spacing
+// amount between elements and helps to maintain a consistent vertical
+// (& horizontal) rhythm
+$gap: $line-height-ratio * 1rem;
+$half-gap: $gap / 2;
+$double-gap: $gap * 2;
+
