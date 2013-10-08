@@ -76,7 +76,7 @@
             <h4>Media Object<span class="filename">abstractions/_media.scss</span></h4>
             <p>Nicole Sullivan's <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">Media Object</a> is an image to the left, with descriptive content to the right.</p>
             <dl><dt><code>@extend %media;</code><br/><code>@extend %media__image;</code><br/><code>@extend %media__body;</code></dt><dd><code>@extend %media;</code> is applied to the parent element. <code>@extend %media__image;</code> to the avatar element and <code>@extend %media__body;</code> to the comment text.</dd></dl>
-            <div class="example example--massive">
+            <div class="example example--media">
                 <!-- begin example code -->
                 <article class="comment">
                     <div class="comment__avatar"><img src="images/wilecoyote.png"/></div>
@@ -90,12 +90,26 @@
                 </article>
                 <!-- end example code -->
             </div>
-            <dl><dt><code>@extend %media--right;</code></dt><dd></dd></dl>
+            <dl><dt><code>@extend %media__image--rev;</code></dt><dd>Places the image to the right</dd></dl>
+            <div class="example example--author">
+                <!-- begin example code -->
+                <article class="author">
+                    <div class="author__avatar"><img src="images/wilecoyote.png"/></div>
+                    <div class="author__body">
+                        <a class="author__book" href="/">101 Further Ways to Kill a Road-Runner</a>
+                        <a class="author__name" href="/"><span>by </span>Wile E. Coyote</a>
+                        <p>Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+<p>Nullam quis risus eget urna mollis ornare vel eu leo. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                        <div class="author__meta"><span class="author__price">£12.99</span> <span class="author__publisher">Acme Press</span></div>
+                    </div>
+                </article>
+                <!-- end example code -->
+            </div>
 
             <h4>Flag Object <span class="filename">abstractions/_flag.scss</span></h4>
             <p>Like the Media Object, but vertically aligns its content in the middle.</p>
             <dl><dt><code>@extend %flag;</code><br/><code>@extend %flag__image;</code><br/><code>@extend %flag__body;</code></dt><dd>This example uses two <code>%flag__image</code> objects to create its effect, one for the logo, one for the New Season announcement. The <code>%flag__body</code> is a large easy-to-click box link.</dd></dl>
-            <div class="example example--large">
+            <div class="example example--heo">
                 <!-- begin example code -->
                 <article class="heo">
                     <div class="heo__logo"><img src="images/heo.png"/></div>
@@ -106,7 +120,7 @@
             </div>
 
             <dl><dt><code>@extend %flag--rev;</code></dt><dd>Modifier used to have the image on the right. Note the source order of <code>%flag__image</code> and <code>%flag__body</code> are also reversed.</dd></dl>
-            <div class="example example--extralarge">
+            <div class="example example--acme">
                 <!-- begin example code -->
                 <article class="acme">
                     <a class="acme__profile" href="/">
@@ -130,6 +144,28 @@
                     <li class="taglist__tag"><a class="taglist__link" href="/">HTML</a></li>
                     <li class="taglist__tag"><a class="taglist__link" href="/">CSS</a></li>
                 </ul>
+                <!-- end example code -->
+            </div>
+
+            <p>If not using lists and <code>li</code> then <code>@extend %lineup__item;</code> on any child element of <code>@extend %lineup;</code> in their place.</p>
+            <div class="example example--medium">
+                <!-- begin example code -->
+                <div class=stats>
+                    <dl class=stats__stat>
+                        <dd class=stats__value>214h 31m</dd>
+                        <dt class=stats__title>Uptime</dt>
+                    </dl>
+
+                    <dl class=stats__stat>
+                        <dd class=stats__value>16,412</dd>
+                        <dt class=stats__title>Unique</dt>
+                    </dl>
+
+                    <dl class=stats__stat>
+                        <dd class=stats__value>531</dd>
+                        <dt class=stats__title>Online</dt>
+                    </dl>
+                </div>
                 <!-- end example code -->
             </div>
 
@@ -192,7 +228,7 @@
             <h4>Split <span class="filename">abstractions/_split.scss</span></h4>
             <p>Split data left and right.</p>
             <dl><dt><code>@extend %split;</code></dt><dt><code>@extend %split__title;</code></dt><dd>
-            <div class="example example--long">
+            <div class="example example--split">
                 <!-- begin example code -->
                 <ul class="contents">
                     <li><a class="contents__entry" href="/">Introduction</a> <span>1</span></li>

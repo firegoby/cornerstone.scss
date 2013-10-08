@@ -3,9 +3,11 @@
 
 // Examples are fleshed out in their own stylesheets
 @import "examples/media-comment";
+@import "examples/media-author";
 @import "examples/flag-acme-profile";
 @import "examples/flag-game-of-drones";
 @import "examples/lineup-taglist";
+@import "examples/lineup-stats";
 @import "examples/lineup-menubar";
 @import "examples/lineup-breadcrumbs";
 @import "examples/lineup-sitemenu";
@@ -123,20 +125,24 @@ body > section > h3 {
         height: 4 * $gap;
     }
 
-    &.example--large {
+    &.example--heo {
         height: 5 * $gap;
     }
 
-    &.example--extralarge {
+    &.example--acme {
         height: 7 * $gap;
     }
 
-    &.example--long {
+    &.example--split {
         height: 12 * $gap;
     }
 
-    &.example--massive {
+    &.example--media {
         height: 18 * $gap;
+    }
+
+    &.example--author {
+        height: 20 * $gap;
     }
 
     &:before {
@@ -153,3 +159,4 @@ body > section > h3 {
         border-radius: 3px;
     }
 }
+

@@ -16,6 +16,12 @@
             display: inline-block;
         }
     }
+
+    // if not using li's then apply this to any element in their place
+    %lineup__item {
+        display: inline-block;
+        margin-right: -4px;
+    }
 }
 
 // Stack the lineup vertically

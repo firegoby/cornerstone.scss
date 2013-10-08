@@ -1,0 +1,59 @@
+// Author/Book profile example
+.author {
+    @extend %media;
+    background: #f6f6f6;
+    border: 1px solid #eaeaea;
+    padding: $gap;
+}
+
+    .author__avatar {
+        @extend %media__image--rev;
+
+        img {
+            width: 100px;
+            margin-left: $gap;
+        }
+    }
+
+    .author__body {
+        @extend %media__body;
+        @include font-size($milli-size);
+    }
+
+        .author__book {
+            @include font-size($h4-size);
+            display: block;
+            color: maroon;
+            margin-bottom: $half-gap;
+        }
+
+        .author__name {
+            @include font-size($h6-size);
+            display: block;
+            color: #111;
+            text-transform: uppercase;
+            margin-bottom: $gap;
+
+            span {
+                text-transform: lowercase;
+                font-family: $alt-font-family;
+                font-style: italic;
+                padding-right: $quarter-gap;
+            }
+        }
+
+        .author__meta {
+            @extend %split;
+        }
+
+            .author__price {
+                @extend %split__title;
+                @include font-size($h5-size);
+            }
+
+            .author__publisher {
+                @include font-size($milli-size);
+                text-transform: uppercase;
+                color: #888;
+            }
+
