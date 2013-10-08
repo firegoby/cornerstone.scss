@@ -50,4 +50,5 @@ $line-height-ratio: strip-units($base-line-height / $base-font-size);
 $gap: $line-height-ratio * 1rem;
 $half-gap: $gap / 2;
 $double-gap: $gap * 2;
+$quarter-gap: $gap / 4;
 
