@@ -1,0 +1,15 @@
+// Table of Contents style left/right split
+// source: Inuit.css
+%split {
+    list-style:none;
+    text-align:right;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+    %split__title {
+        float:left;
+        clear:left;
+        text-align:left;
+    }
+

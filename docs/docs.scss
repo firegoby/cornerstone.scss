@@ -10,6 +10,7 @@
 @import "examples/lineup-breadcrumbs";
 @import "examples/lineup-sitemenu";
 @import "examples/lineup-social";
+@import "examples/split-contents";
 
 // General styles for the docs
 body {
@@ -128,6 +129,10 @@ body > section > h3 {
 
     &.example--extralarge {
         height: 7 * $gap;
+    }
+
+    &.example--long {
+        height: 12 * $gap;
     }
 
     &.example--massive {

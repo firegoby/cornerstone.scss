@@ -1,0 +1,27 @@
+// Table of Content example
+.contents {
+    @extend %split;
+}
+
+    .contents li {
+        border-bottom: 1px dotted #888;
+        color: #888;
+        margin-bottom: $half-gap;
+        font-family: $alt-font-family;
+    }
+
+    .contents__entry,
+    .contents span {
+        position: relative;
+        top: 6px;
+        background: white;
+    }
+
+    .contents__entry {
+        @extend %split__title;
+        padding-right: $quarter-gap;
+    }
+
+    .contents span {
+        padding-left: $quarter-gap;
+    }

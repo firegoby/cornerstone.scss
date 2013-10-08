@@ -188,6 +188,22 @@
             <dl><dt><code>@include place--left($spacing);</code></dt><dd>Float an element left with <code>$spacing</code> applied to the right &amp; bottom margins, defaults to <code>$gap</code> if omitted to maintain vertical and horizontal rhythm.</dd></dl>
             <dl><dt><code>@include place--right($spacing);</code></dt><dd>Float an element right with <code>$spacing</code> applied to the left &amp; bottom margins, defaults to <code>$gap</code> if omitted to maintain vertical and horizontal rhythm.</dd></dl>
             <dl><dt><code>@include place--center($spacing);</code></dt><dd>Center a element using automatic left/right margins with <code>$spacing</code> applied to the bottom margin, defaults to <code>$gap</code> if omitted to maintain vertical rhythm.</dd></dl>
+
+            <h4>Split <span class="filename">abstractions/_split.scss</span></h4>
+            <p>Split data left and right.</p>
+            <dl><dt><code>@extend %split;</code></dt><dt><code>@extend %split__title;</code></dt><dd>
+            <div class="example example--long">
+                <!-- begin example code -->
+                <ul class="contents">
+                    <li><a class="contents__entry" href="/">Introduction</a> <span>1</span></li>
+                    <li><a class="contents__entry" href="/">In The Beginning</a> <span>8</span></li>
+                    <li><a class="contents__entry" href="/">The Middle Ground</a> <span>23</span></li>
+                    <li><a class="contents__entry" href="/">A Road Less Travelled</a> <span>39</span></li>
+                    <li><a class="contents__entry" href="/">In The Final Hours</a> <span>47</span></li>
+                    <li><a class="contents__entry" href="/">Conclusion</a> <span>61</span></li>
+                </ul>
+                <!-- end example code -->
+            </div>
         </section>
     </body>
 </html>
