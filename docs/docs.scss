@@ -2,6 +2,7 @@
 @import "../cornerstone";
 
 // Examples are fleshed out in their own stylesheets
+@import "examples/forms-contact";
 @import "examples/media-comment";
 @import "examples/media-author";
 @import "examples/flag-acme-profile";
@@ -123,6 +124,10 @@ body > section > h3 {
 
     &.example--medium {
         height: 4 * $gap;
+    }
+
+    &.example--forms {
+        height: auto;
     }
 
     &.example--heo {

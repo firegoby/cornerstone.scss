@@ -1,0 +1,113 @@
+// Simple top labelled forms
+// Adapted from: http://pea.rs/forms/top-labels
+%forms {
+    fieldset {
+        border: 0;
+        margin-bottom: $gap;
+        padding: 0;
+	}
+
+    label {
+        @extend %zeta;
+        display: block;
+        font-weight: bold;
+        margin-bottom: $gap / 8;
+    }
+
+    .form__error label {
+        color: $forms-error-color;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    textarea {
+        @extend %zeta;
+        display: block;
+        width: 100%;
+        padding: $half-gap;
+        background: #f6f6f6;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        margin-bottom: $quarter-gap;
+
+        &:focus {
+            border: 1px solid #333;
+            background: white;
+        }
+    }
+
+    .form__error > input[type="text"],
+    .form__error > input[type="email"],
+    .form__error > input[type="url"],
+    .form__error > textarea {
+            border-color: $forms-error-color;
+            color: $forms-error-color;
+        }
+
+    textarea {
+        min-height: 9 * $gap;
+        line-height: 1.2;
+        padding: $half-gap;
+    }
+
+    label > input[type="checkbox"],
+    label > input[type="radio"] {
+        display: inline-block;
+        margin-right: $quarter-gap;
+    }
+
+    .form__inline {
+        display: inline;
+        font-weight: normal;
+    }
+
+    select {
+        min-width: 12em;
+        margin: 0;
+    }
+
+    input[type="submit"] {
+        @extend %zeta;
+        margin: 0;
+        border-radius: 4px;
+        padding: $quarter-gap $gap;
+        border: 1px solid #ccc;
+        background: #f6f6f6;
+        font-weight: bold;
+        line-height: 0.9;
+
+        &:hover {
+            border: 1px solid #333;
+        }
+    }
+
+    %form__help,
+    .form__help,
+    %form__errormsg,
+    .form__errormsg {
+        @include font-size($milli-size);
+        color: #999;
+    }
+
+    %form_errormsg,
+    .form__errormsg {
+        color: $forms-error-color;
+    }
+
+
+    p {
+        margin-bottom: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 0;
+    }
+
+    ul > li {
+        list-style: none;
+        margin-bottom: $gap / 8;
+    }
+}
+

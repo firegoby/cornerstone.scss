@@ -69,7 +69,63 @@
 
             <h4>Modular Scale <span class="filename">typography/_modularscale.scss</span></h4>
             <p>Sets the <code>$giga, $mega, $kilo, $alpha, $beta, $gamma, $delta, $epsilon, $zeta, $milli, $micro</code> font-size modular scale as defined in <code>_variables.scss</code></p>
+
+            <h4>Forms <span class="filename">typography/_forms.scss</span></h4>
+            <p>Basic formatting for simple top labelled forms with help and error text. Input elements strecth to 100% width of their container.</p>
+            <dl><dt><code>@extend %forms;</code></dt><dd>Extend <code>%forms</code> on any <code>form</code> element. Wrap your <code>label</code> and <code>input</code> elements in individual <code>fieldset</code> elements. Apply class of <code>form__error</code> to any <code>fieldset</code> to activate error highlighting within it. Error messages can be classed with <code>form_errormsg</code>. Additional help text can be classed with <code>form__help</code>. A <code>label</code> element that wraps an inline <code>input</code> (e.g. radio buttons and checkboxes) can be classed with <code>form__inline</code> to ensure proper display.</dd></dl>
+            <div class="example example--forms">
+                <!-- begin example code -->
+                <form action="/">
+                    <fieldset>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" />
+                        <p class="form__help">Some help text is often useful</p>
+                    </fieldset>
+
+                    <fieldset class="form__error">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" value="wile.e.coyote@example.com" />
+                        <p class="form__errormsg">Must be a real email address</p>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="species">Species</label>
+                        <select id="species">
+                            <option>Coyote</option>
+                            <option>Road Runner</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="newsletter">Newsletter</label>
+                        <ul>
+                            <li><label class="form__inline"><input type="radio" name="newsletter" />Send me the ACME Inc newsletter</label></li>
+                            <li><label class="form__inline"><input type="radio" name="newsletter" />Don't send me the newsletter</label></li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="url">URL</label>
+                        <input type="url" id="url" placeholder="http://acme.com" />
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="why">Why you love ACME Inc.</label>
+                        <textarea id="why"></textarea>
+                    </fieldset>
+
+                    <fieldset>
+                        <label class="form__inline"><input type="checkbox" name="accept"/> I accept the dangers of the open road</label>
+                    </fieldset>
+
+                    <fieldset>
+                        <input type="submit" value="Submit" />
+                    </fieldset>
+                </form>
+                <!-- end example code -->
+            </div>
         </section>
+
 
         <section class="module">
             <h3><span>Abstractions</span></h3>

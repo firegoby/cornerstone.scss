@@ -435,6 +435,88 @@ figure blockquote + figcaption:before {
 dt {
   font-weight: bold; }
 
+form label, form input[type="text"],
+form input[type="email"],
+form input[type="url"],
+form textarea, form input[type="submit"] {
+  font-size: 14px;
+  font-size: 1rem;
+  line-height: 1.5; }
+
+form fieldset {
+  border: 0;
+  margin-bottom: 1.5rem;
+  padding: 0; }
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.1875rem; }
+form .form__error label {
+  color: #b52a2a; }
+form input[type="text"],
+form input[type="email"],
+form input[type="url"],
+form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: #f6f6f6;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 0.375rem; }
+  form input[type="text"]:focus,
+  form input[type="email"]:focus,
+  form input[type="url"]:focus,
+  form textarea:focus {
+    border: 1px solid #333;
+    background: white; }
+form .form__error > input[type="text"],
+form .form__error > input[type="email"],
+form .form__error > input[type="url"],
+form .form__error > textarea {
+  border-color: #b52a2a;
+  color: #b52a2a; }
+form textarea {
+  min-height: 13.5rem;
+  line-height: 1.2;
+  padding: 0.75rem; }
+form label > input[type="checkbox"],
+form label > input[type="radio"] {
+  display: inline-block;
+  margin-right: 0.375rem; }
+form .form__inline {
+  display: inline;
+  font-weight: normal; }
+form select {
+  min-width: 12em;
+  margin: 0; }
+form input[type="submit"] {
+  margin: 0;
+  border-radius: 4px;
+  padding: 0.375rem 1.5rem;
+  border: 1px solid #ccc;
+  background: #f6f6f6;
+  font-weight: bold;
+  line-height: 0.9; }
+  form input[type="submit"]:hover {
+    border: 1px solid #333; }
+form .form__help,
+form .form__errormsg {
+  font-size: 12px;
+  font-size: 0.85714rem;
+  line-height: 1.75;
+  color: #999; }
+form .form__errormsg {
+  color: #b52a2a; }
+form p {
+  margin-bottom: 0; }
+form ul {
+  margin: 0;
+  padding-left: 0; }
+form ul > li {
+  list-style: none;
+  margin-bottom: 0.1875rem; }
+
 .taglist, .stats, .menubar, .breadcrumbs {
   list-style: none;
   margin-left: 0;
@@ -917,6 +999,8 @@ body > section > h3 {
     clear: both; }
   .example.example--medium {
     height: 6rem; }
+  .example.example--forms {
+    height: auto; }
   .example.example--heo {
     height: 7.5rem; }
   .example.example--acme {
